@@ -1,4 +1,8 @@
 import { NavLink } from "react-router-dom";
+import Home from "../../images/home.png";
+import Users from "../../images/users.png";
+import currentUser from "../../images/currentUser.jpg";
+import Friends from "../../images/friends2.png";
 import css from "./LeftBar.module.css";
 
 const LeftBar = () => {
@@ -13,7 +17,7 @@ const LeftBar = () => {
               }
               to="/"
             >
-              <img src={"home"} alt="" />
+              <img src={Home} width="40px" alt="home" />
               <span>Home</span>
             </NavLink>
           </li>
@@ -24,7 +28,7 @@ const LeftBar = () => {
                 isActive ? `${css.item} ${css.active}` : `${css.item}`
               }
             >
-              <img src={"Tweets"} alt="" />
+              <img src={Users} width="40px" alt="users" />
               <span>Tweets</span>
             </NavLink>
           </li>
@@ -38,7 +42,7 @@ const LeftBar = () => {
                 isActive ? `${css.item} ${css.active}` : `${css.item}`
               }
             >
-              <img src={"profile"} alt="" />
+              <img className={css.currentUser} src={currentUser} alt="" />
               <span>Profile</span>
             </NavLink>
           </li>
@@ -50,15 +54,25 @@ const LeftBar = () => {
                 isActive ? `${css.item} ${css.active}` : `${css.item}`
               }
             >
-              <img src={"friends"} alt="" />
+              <img className={css.Friends} src={Friends} alt="Friends" />
               <span>Friends</span>
             </NavLink>
           </li>
         </ul>
         <hr />
-        <div className={css.menu}>
-          <span>Others</span>
-        </div>
+        <ul className={css.menu}>
+          <li className={css.item}>
+            <NavLink
+              to="/others"
+              className={({ isActive }) =>
+                isActive ? `${css.item} ${css.active}` : `${css.item}`
+              }
+            >
+              <img src={"others"} alt="" />
+              <span>Others</span>
+            </NavLink>
+          </li>
+        </ul>
       </div>
     </div>
   );

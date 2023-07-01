@@ -4,14 +4,15 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-
-import Home from "./pages/Home/Home";
-import Tweets from "./pages/Tweets/Tweets";
-import Profile from "./pages/Profile/Profile";
 import LeftBar from "./components/LeftBar/LeftBar";
+import Header from "./components/Navbar/Header";
+import HomePage from "./pages/HomePage/HomePage";
+import FriendsPage from "./pages/FriendsPage/FriendsPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import TweetsPage from "./pages/TweetsPage/TweetsPage";
 
 import css from "./app.module.css";
-import Header from "./components/Navbar/Header";
+import OthersPage from "./pages/OthersPage/OthersPage";
 
 const App = () => {
   const Layout = () => {
@@ -22,9 +23,9 @@ const App = () => {
           <div style={{ display: "flex" }}>
             <LeftBar />
 
-            <div style={{ width: "57%" }}>
+            <main className={css.main}>
               <Outlet />
-            </div>
+            </main>
           </div>
         </div>
       </div>
@@ -38,15 +39,27 @@ const App = () => {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: <HomePage />,
         },
         {
           path: "/tweets",
-          element: <Tweets />,
+          element: <TweetsPage />,
         },
         {
           path: "/tweets/:id",
-          element: <Profile />,
+          element: <ProfilePage />,
+        },
+        {
+          path: "/profile",
+          element: <ProfilePage />,
+        },
+        {
+          path: "/friends",
+          element: <FriendsPage />,
+        },
+        {
+          path: "/others",
+          element: <OthersPage />,
         },
 
         {
@@ -58,9 +71,7 @@ const App = () => {
   ]);
 
   return (
-    <div>
-      <RouterProvider router={router}></RouterProvider>
-    </div>
+    <RouterProvider basename="social_tweets" router={router}></RouterProvider>
   );
 };
 

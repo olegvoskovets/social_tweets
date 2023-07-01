@@ -1,0 +1,25 @@
+@import url("../../index.css");
+
+.tweet {
+  width: 380px;
+  height: 460px;
+  border-radius: 20px;
+  background: var(--background-main-color);
+  box-shadow: var(--box-shadow-main);
+  display: flex;
+  flex-direction: column;
+}
+.top {
+  height: 214px;
+  padding: 28px 36px 18px 36px;
+  box-sizing: border-box;
+}
+.rectangle {
+  height: 8px;
+  background: #ebd8ff;
+  box-sizing: border-box;
+}
+.button_block {
+  height: 238px;
+  box-sizing: border-box;
+}
