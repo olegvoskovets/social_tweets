@@ -1,0 +1,6 @@
+@import url("./index.css");
+
+.background {
+  background: #7d1de4;
+  min-height: 100vh;
+}
