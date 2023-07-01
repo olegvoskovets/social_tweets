@@ -32,47 +32,48 @@ const App = () => {
     );
   };
 
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Layout />,
-      children: [
-        {
-          path: "/",
-          element: <HomePage />,
-        },
-        {
-          path: "/tweets",
-          element: <TweetsPage />,
-        },
-        {
-          path: "/tweets/:id",
-          element: <ProfilePage />,
-        },
-        {
-          path: "/profile",
-          element: <ProfilePage />,
-        },
-        {
-          path: "/friends",
-          element: <FriendsPage />,
-        },
-        {
-          path: "/others",
-          element: <OthersPage />,
-        },
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <Layout />,
+        children: [
+          {
+            path: "/",
+            element: <HomePage />,
+          },
+          {
+            path: "/tweets",
+            element: <TweetsPage />,
+          },
+          {
+            path: "/tweets/:id",
+            element: <ProfilePage />,
+          },
+          {
+            path: "/profile",
+            element: <ProfilePage />,
+          },
+          {
+            path: "/friends",
+            element: <FriendsPage />,
+          },
+          {
+            path: "/others",
+            element: <OthersPage />,
+          },
 
-        {
-          path: "*",
-          element: <Navigate to="/" />,
-        },
-      ],
-    },
-  ]);
-
-  return (
-    <RouterProvider basename="social_tweets" router={router}></RouterProvider>
+          {
+            path: "*",
+            element: <Navigate to="/" />,
+          },
+        ],
+      },
+    ],
+    { basename: "/social_tweets" }
   );
+
+  return <RouterProvider router={router}></RouterProvider>;
 };
 
 export default App;
